@@ -8,7 +8,7 @@ class App extends React.Component {
     /* global pendo */
     pendo.initialize({
       visitor: {
-        id: 'VISITOR-UNIQUE-ID'   // Required if user is logged in, default creates anonymous ID
+        id: 'VISITOR-1'   // Required if user is logged in, default creates anonymous ID
         // email:        // Recommended if using Pendo Feedback, or NPS Email
         // full_name:    // Recommended if using Pendo Feedback
         // role:         // Optional
@@ -18,7 +18,7 @@ class App extends React.Component {
       },
 
       account: {
-        id: 'ACCOUNT-UNIQUE-ID' // Required if using Pendo Feedback, default uses the value 'ACCOUNT-UNIQUE-ID'
+        id: 'ACCOUNT-1' // Required if using Pendo Feedback, default uses the value 'ACCOUNT-UNIQUE-ID'
         // name:         // Optional
         // is_paying:    // Recommended if using Pendo Feedback
         // monthly_value:// Recommended if using Pendo Feedback
