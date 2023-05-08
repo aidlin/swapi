@@ -9,29 +9,43 @@
       content="Web site created using create-react-app"
     />
     <script>
-      (function (apiKey) {
-        (function (p, e, n, d, o) {
-          var v, w, x, y, z; o = p[d] = p[d] || {}; o._q = o._q || [];
-          v = ['initialize', 'identify', 'updateOptions', 'pageLoad', 'track']; for (w = 0, x = v.length; w < x; ++w)(function (m) {
-            o[m] = o[m] || function () { o._q[m === v[0] ? 'unshift' : 'push']([m].concat([].slice.call(arguments, 0))); };
-          })(v[w]);
-          // y = e.createElement(n); y.async = !0; y.src = 'https://cdn.pendo-mobile-guides.pendo-dev.com/agent/static/' + apiKey + '/pendo.js';
-          y = e.createElement(n); y.async = !0; y.src = 'https://local.pendo.io:8081/dist/pendo.jsonp.js';
-          z = e.getElementsByTagName(n)[0]; z.parentNode.insertBefore(y, z);
-        })(window, document, 'script', 'pendo');
-      })('dcab182a-b59f-401f-6a36-f6e0b01f9fbc');
-      window.addEventListener('load', function (event) {
-        console.warn('onload');
-        pendo.initialize({
-          visitor: {
-            id: 'VISITOR-1'
-          },
+//       (function (apiKey) {
+//         (function (p, e, n, d, o) {
+//           var v, w, x, y, z; o = p[d] = p[d] || {}; o._q = o._q || [];
+//           v = ['initialize', 'identify', 'updateOptions', 'pageLoad', 'track']; for (w = 0, x = v.length; w < x; ++w)(function (m) {
+//             o[m] = o[m] || function () { o._q[m === v[0] ? 'unshift' : 'push']([m].concat([].slice.call(arguments, 0))); };
+//           })(v[w]);
+//           y = e.createElement(n); y.async = !0; y.src = 'https://cdn.pendo-mobile-guides.pendo-dev.com/agent/static/' + apiKey + '/pendo.js';
+// //           y = e.createElement(n); y.async = !0; y.src = 'https://local.pendo.io:8081/dist/pendo.jsonp.js';
+//           z = e.getElementsByTagName(n)[0]; z.parentNode.insertBefore(y, z);
+//         })(window, document, 'script', 'pendo');
+//       })('dcab182a-b59f-401f-6a36-f6e0b01f9fbc');
+//       window.addEventListener('load', function (event) {
+//         console.warn('onload');
+//         pendo.initialize({
+//           visitor: {
+//             id: 'VISITOR-1'
+//           },
 
-          account: {
-            id: 'ACCOUNT-1'
-          }
-        });
-      });
+//           account: {
+//             id: 'ACCOUNT-1'
+//           }
+//         });
+//       });
+      
+      window.PendoConfig = {
+          apiKey: 'dcab182a-b59f-401f-6a36-f6e0b01f9fbc',
+          agentUrl: 'https://local.pendo.io:8081/dist/pendo.jsonp.js'
+      };
+      if (!window.location.hash.includes('disableAgentInitialize=true')) {
+          (function(apiKey){
+              (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
+              v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
+                  o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
+                  y=e.createElement(n);y.async=!0;y.src=window.PendoConfig.agentUrl;
+                  z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
+          })('dcab182a-b59f-401f-6a36-f6e0b01f9fbc');
+      }
     </script>
     <title>React App</title>
   </head>
